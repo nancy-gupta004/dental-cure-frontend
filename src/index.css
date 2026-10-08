@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-marcellus: "Marcellus", serif;
+  --font-manrope: "Manrope", sans-serif;
+
+  --color-brand-50: #faf6f1;
+  --color-brand-100: #f5ede2;
+  --color-brand-200: #eed9c4;
+  --color-brand-300: #e2c7aa;
+  --color-brand-400: #d0b294;
+  --color-brand-500: #bea68e;
+  --color-brand-550: #7C7878;
+  --color-brand-600: #a88f74;
+  --color-brand-700: #89725d;
+  --color-brand-800: #6d5a49;
+  --color-brand-900: #54463a;
+
+  --color-ink-50: #f8f7f4;
+  --color-ink-100: #efede8;
+  --color-ink-300: #cbc5bb;
+  --color-ink-400: #a39c8f;
+  --color-ink-500: #857e73;
+  --color-ink-700: #4a453d;
+  --color-ink-900: #1f1f1f;
+}
+
+body {
+  @apply bg-brand-50 text-ink-900 antialiased;
+}
