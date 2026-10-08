@@ -15,6 +15,7 @@ const EMPTY_CARD = () => ({
   id: null,
   title_1: "",
   title_2: "",
+  url: "",
   icon_image: "",
   iconFile: null,
   saving: false,
@@ -48,6 +49,7 @@ function AdminDentalServices() {
             id: card.id,
             title_1: card.title_1 || "",
             title_2: card.title_2 || "",
+            url: card.url || "",
             icon_image: card.icon_image || "",
             iconFile: null,
             saving: false,
@@ -111,6 +113,7 @@ function AdminDentalServices() {
     const formData = new FormData();
     formData.append("title_1", card.title_1);
     formData.append("title_2", card.title_2);
+    formData.append("url", card.url ?? "");
     if (card.iconFile) {
       formData.append("icon_image", card.iconFile);
     }
@@ -130,6 +133,7 @@ function AdminDentalServices() {
                 id: saved.id,
                 title_1: saved.title_1 || "",
                 title_2: saved.title_2 || "",
+                url: saved.url || "",
                 icon_image: saved.icon_image || "",
                 iconFile: null,
                 saving: false,
@@ -353,6 +357,19 @@ function AdminDentalServices() {
                     value={card.title_2}
                     onChange={(e) => updateCardField(card.key, "title_2", e.target.value)}
                     placeholder="e.g. Fast, Reliable Diagnostics At Your Time"
+                    className={inputClass}
+                  />
+                </div>
+
+                <div>
+                  <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-ink-700">
+                    URL
+                  </label>
+                  <input
+                    type="text"
+                    value={card.url}
+                    onChange={(e) => updateCardField(card.key, "url", e.target.value)}
+                    placeholder="e.g. /services/root-canal"
                     className={inputClass}
                   />
                 </div>

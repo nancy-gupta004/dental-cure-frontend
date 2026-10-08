@@ -25,6 +25,23 @@ function ArrowIcon({ direction }) {
 }
 
 function DentalServiceCard({ card }) {
+  const arrow = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      className="h-9 w-9 text-brand-500 hover:lg:animate-bounce"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M7 17 17 7M7 7h10v10"
+      />
+    </svg>
+  );
+
   return (
     <article
       data-card
@@ -59,20 +76,13 @@ function DentalServiceCard({ card }) {
 
       {/* Bottom Arrow */}
       <div className="mt-6 flex justify-center ">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="h-9 w-9 text-brand-500 hover:lg:animate-bounce"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M7 17 17 7M7 7h10v10"
-          />
-        </svg>
+        {card.url ? (
+          <a href={card.url} aria-label={card.title_1 || "Open service"}>
+            {arrow}
+          </a>
+        ) : (
+          arrow
+        )}
       </div>
     </article>
   );
