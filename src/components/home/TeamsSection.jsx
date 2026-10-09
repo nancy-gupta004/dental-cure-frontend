@@ -26,13 +26,13 @@ function TeamsSection() {
   const hasSplittableHeading = headingWords.length >= 3;
 
   return (
-    <section className="overflow-hidden bg-white px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
-      <div className="mx-auto w-full max-w-6xl">
+   <section className="relative -top-24 overflow-hidden bg-white px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
+  <div className="mx-auto w-full max-w-6xl">
         {/* Title + Heading (left) and Button (right) */}
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
             {section.title_1 && (
-              <p className="text-sm font-medium italic text-brand-400">
+              <p className="text-sm font-sans italic text-brand-500">
                 {section.title_1}
               </p>
             )}
@@ -42,9 +42,10 @@ function TeamsSection() {
                 {hasSplittableHeading ? (
                   <>
                     {headingWords.slice(0, -2).join(" ")}{" "}
-                    <span className="text-brand-400">
-                      {headingWords.slice(-2).join(" ")}
-                    </span>
+        <span className="text-brand-400">
+          {headingWords[headingWords.length - 2]}
+        </span>{" "}
+        {headingWords[headingWords.length - 1]}
                   </>
                 ) : (
                   section.heading
@@ -56,7 +57,7 @@ function TeamsSection() {
           {section.button_text && (
             <a
               href={section.button_link || "#"}
-              className="inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-gradient-to-b from-brand-400 to-brand-600 px-8 py-3.5 text-base font-semibold text-white shadow-xl shadow-brand-900/20 transition hover:from-brand-300 hover:to-brand-500 lg:self-end"
+              className="inline-flex shrink-0 w-[173px] h-[48px] items-center gap-2 self-start rounded-full bg-brand-500 px-8 py-3.5 text-[13px] font-marcellus text-white shadow-xl shadow-brand-900/20 transition hover:from-brand-300 hover:to-brand-500 lg:self-end"
             >
               {section.button_text}
               <svg
@@ -99,7 +100,7 @@ function TeamsSection() {
                 )}
 
                 {member.designation && (
-                  <p className="mt-1.5 text-sm italic font-sans font-medium text-brand-400">
+                  <p className="mt-1.5 text-sm italic font-manrope  text-brand-500">
                     {member.designation}
                   </p>
                 )}

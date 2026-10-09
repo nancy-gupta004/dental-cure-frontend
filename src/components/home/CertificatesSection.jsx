@@ -70,7 +70,7 @@ function CertificatesSection() {
   }
 
   return (
-    <section className="overflow-hidden bg-white px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
+    <section className="-mt-48 overflow-hidden bg-white px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
       <div className="mx-auto w-full max-w-6xl">
         {/* Section header */}
         <div className="text-center">

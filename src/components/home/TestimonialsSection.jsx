@@ -30,7 +30,7 @@ function PlayIcon() {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className="ml-0.5 h-6 w-6 text-white"
+      className="ml-0.5 h-[32px] w-[34px] text-brand-500"
     >
       <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14Z" />
     </svg>
@@ -49,13 +49,13 @@ function TestimonialCard({ card }) {
   return (
     <article
       data-card
-      className="group relative h-[310px] w-[230px] shrink-0 snap-start overflow-hidden rounded-[18px] bg-ink-900"
+      className="group relative h-[290px] w-[230px] shrink-0 snap-start overflow-hidden rounded-[18px] bg-ink-900 bg-transparent"
     >
       {/* Video fills the whole card as the visual background */}
       <video
         ref={videoRef}
         src={resolveMediaUrl(card.video_url)}
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover "
         preload="metadata"
         muted={!playing}
         playsInline
@@ -140,19 +140,19 @@ function TestimonialsSection() {
   }
 
   return (
-    <section className="bg-brand-50 px-4 py-16 sm:px-8 lg:px-10 bg-white">
+    <section className="bg-brand-50 px-4 py-0 sm:px-8 lg:px-10 bg-white">
       {/* Section Title */}
       <div className="mx-auto max-w-4xl text-center">
         {section?.title_1 && (
-          <p className="text-sm font-medium italic tracking-wide text-brand-600">
+          <p className="text-sm font-medium italic tracking-wide text-brand-500">
             {section.title_1}
           </p>
         )}
-
+                  <div className="mx-auto w-full max-w-[900px]">
         {section?.heading && (
           <h2 className="mt-3 text-4xl font-marcellus leading-tight tracking-tight text-ink-900 sm:text-5xl">
             {section.heading.split(" ").slice(0, -2).join(" ")}{" "}
-            <span className="text-ink-300">
+            <span className="text-brand-500">
               {section.heading.split(" ").slice(-2).join(" ")}
             </span>
           </h2>
@@ -163,6 +163,7 @@ function TestimonialsSection() {
             {section.description}
           </p>
         )}
+        </div>
       </div>
 
       {/* Cards */}
@@ -185,16 +186,29 @@ function TestimonialsSection() {
               aria-label="Previous cards"
               onClick={() => scrollCards(-1)}
               disabled={!canLeft}
-              className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-ink-900 shadow-md transition duration-200 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-40"
+              className="flex h-[41px] w-[41px] items-center justify-center rounded-full bg-[#F9F6F4] text-ink-900 shadow-md transition duration-200 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-40"
             >
               <ArrowIcon direction="left" />
             </button>
+              {/* Line / Progress Indicator */}
+                  <div className="relative h-[2px] w-32 overflow-hidden bg-[#D9D9D9]">
+                    <div
+                      className="absolute left-0 top-0 h-full w-1/2 bg-[#BEA68E] transition-transform duration-500"
+                      style={{
+                        transform: canLeft && canRight
+                          ? "translateX(100%)"
+                          : canRight
+                            ? "translateX(0)"
+                            : "translateX(100%)",
+                      }}
+                    />
+                  </div>
             <button
               type="button"
               aria-label="Next cards"
               onClick={() => scrollCards(1)}
               disabled={!canRight}
-              className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-ink-900 shadow-md transition duration-200 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-40"
+              className="flex h-[41px] w-[41px] items-center justify-center rounded-full bg-[#F9F6F4] text-ink-900 shadow-md transition duration-200 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-40"
             >
               <ArrowIcon direction="right" />
             </button>

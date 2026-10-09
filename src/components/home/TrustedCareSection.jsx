@@ -27,43 +27,44 @@ function TrustedCareSection() {
       <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
         {/* Left: image + floating card */}
         <div className="relative">
-          <div className="relative overflow-hidden rounded-[28px]">
+          <div className="relative overflow-hidden rounded-[10px]">
             {section.image ? (
               <img
                 src={resolveMediaUrl(section.image)}
                 alt={section.heading || "Trusted dental care"}
-    className="h-80 w-full rounded-[28px] object-cover shadow-xl shadow-brand-400/30 transition-transform duration-700 ease-in hover:scale-110 sm:h-[26rem] lg:h-[30rem]"
+    className="h-80 w-full rounded-[10px] object-cover shadow-xl shadow-brand-400/30 transition-transform duration-700 ease-in hover:scale-110 sm:h-[26rem] lg:h-[30rem]"
               />
             ) : (
               <div className="h-80 w-full rounded-[28px] bg-brand-100 sm:h-[26rem] lg:h-[30rem]" />
             )}
 
             {items.length > 0 && (
-              <div className="absolute mb-16 h-10 -bottom-7 left-1/2 w-[92%] -translate-x-1/2 rounded-2xl bg-white p-5 shadow-2xl shadow-brand-900/15 sm:-bottom-8 sm:w-[90%] sm:p-6">
-                <div className=" gap-x-4 gap-y-3 flex flex-wrap -mt-5 justify-center">
-                  {items.map((item, index) => (
-                    <div
-                      key={`${item.id || index}`}
-                      className="flex items-center gap-3 mb-20"
-                    >
-                      {item.logo && (
-                        <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full  ">
-                          <img
-                            src={resolveMediaUrl(item.logo)}
-                            alt={item.text || `Floating item ${index + 1}`}
-                            className="h-8 w-8 object-contain rounded-full"
-                          />
-                        </span>
-                      )}
-                      {item.text && (
-                        <span className="text-sm font-semibold text-ink-900">
-                          {item.text}
-                        </span>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
+            <div className="absolute top-[82%] left-1/2 h-14 w-[92%] -translate-x-1/2 rounded-2xl bg-white p-3 shadow-2xl shadow-brand-900/15 sm:-bottom-8 sm:w-[90%] sm:p-4">
+  <div className="grid w-full grid-cols-4 top-[68%]items-center justify-items-center gap-0">
+    {items.slice(0, 4).map((item, index) => (
+      <div
+        key={`${item.id || index}`}
+        className="flex items-center gap-2"
+      >
+        {item.logo && (
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full">
+            <img
+              src={resolveMediaUrl(item.logo)}
+              alt={item.text || `Floating item ${index + 1}`}
+              className="h-7 w-7 rounded-full object-contain"
+            />
+          </span>
+        )}
+
+        {item.text && (
+          <span className="text-sm whitespace-nowrap text-ink-900">
+            {item.text}
+          </span>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
             )}
           </div>
         </div>
@@ -73,7 +74,7 @@ function TrustedCareSection() {
           {section.heading && (
             <h2 className="text-3xl font-marcellus leading-tight tracking-tight text-ink-900 sm:text-4xl lg:text-[2.6rem]">
             {section.heading.split(" ").slice(0, -3).join(" ")}{" "}
-                <span className="text-ink-300">
+                <span className="text-brand-500">
                   {section.heading.split(" ").slice(-3).join(" ")}
                 </span> 
            </h2>
@@ -87,7 +88,7 @@ function TrustedCareSection() {
           )}
 
           {features.length > 0 && (
-            <div className="mt-9 grid grid-cols-2 gap-x-4 gap-y-6 rounded-2xl border border-brand-200/80 bg-white p-5 sm:p-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-brand-100 lg:p-0">
+            <div className="mt-9 grid grid-cols-2 gap-x-4 gap-y-6 rounded-2xl border border-[#FAF3E9] bg-white p-5 sm:p-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-brand-100 lg:p-0">
               {features.map((feature, index) => (
                 <div
                   key={`${feature.id || index}`}
@@ -103,7 +104,7 @@ function TrustedCareSection() {
                     </span>
                   )}
                   {feature.description && (
-                    <p className="mt-3 text-sm font-semibold leading-snug text-ink-700">
+                    <p className="mt-3 text-center font-marcellus text-[14px] font-normal leading-[24px] text-[#1F1F1F]">
                       {feature.description}
                     </p>
                   )}
